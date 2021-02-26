@@ -1,4 +1,5 @@
 import os
+import datetime
 import pymysql
 
 # Get username
@@ -12,10 +13,10 @@ connection = pymysql.connect(
 try:
     # run query
     with connection.cursor() as cursor:
-        sql = "SELECT * FROM Artist;"
-        cursor.execute(sql)
-        result = cursor.fetchall()      # getting the data back
-        print(result)
+        cursor.execute("""CREATE TABLE IF NOT EXISTS
+                        Friends(name char(20), Age int, DOB datetime);""")
+        # Note that the above will display a warning (not error) if
+        # the table already exists
 finally:
     # Close the connection to sql,
     # regardless of whether the above was successful

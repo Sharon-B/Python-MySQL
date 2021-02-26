@@ -1,0 +1,22 @@
+mysql> show tables;
++-------------------+
+| Tables_in_Chinook |
++-------------------+
+| Album             |
+| Artist            |
+| Customer          |
+| Employee          |
+| Friends           |
+| Genre             |
+| Invoice           |
+| InvoiceLine       |
+| MediaType         |
+| Playlist          |
+| PlaylistTrack     |
+| Track             |
++-------------------+
+12 rows in set (0.01 sec)
+
+mysql> SELECT * FROM Friends;
+Empty set (0.00 sec)
+
