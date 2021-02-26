@@ -13,10 +13,10 @@ connection = pymysql.connect(
 try:
     # run query
     with connection.cursor() as cursor:
-        cursor.execute("""CREATE TABLE IF NOT EXISTS
-                        Friends(name char(20), Age int, DOB datetime);""")
-        # Note that the above will display a warning (not error) if
-        # the table already exists
+        rows = [(23, 'Bob'), (24, 'Jim'), (25, 'Fred')]
+        cursor.executemany("UPDATE Friends SET Age = %s WHERE name = %s;",
+                           rows)
+        connection.commit()
 finally:
     # Close the connection to sql,
     # regardless of whether the above was successful
